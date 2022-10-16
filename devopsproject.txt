@@ -1,0 +1,86 @@
+
+##DevOps Project 1 #######
+CI/CD pipeline for Java application to deploy 
+GIT/GITHUB
+Gradle
+SonarQube 
+Jenkins 
+Docker : multistage docker file 
+Nexus : Repository manager > In this we used nexus to store Docker images and Helm charts
+Kubernetets : I will be deploying our application on k8s cluster using helm charts
+
+HELM : helm helps you manage kubernetes applications. Helm Charts help you define, install and upgrade even the most complex kuberneets applications
+ 
+In CICD by using helm charts will deploy applications on k8s cluster
+Datree.io: 
+Prevent kubernetes msconfigurations from reaching production 
+In CICD I am using datree helm plugin which helps us in idetifying misconfiguration in helm charts
+
+Reference : 
+https://github.com/DeekshithSN/cheatsheet/blob/master/installtion_guide_ubuntu.md
+https://github.com/DeekshithSN/CICD_Java_gradle_application/wiki
+Steps :
+five instances : Ubuntu, security group etc 
+Jenkins, kubernetes 2 (Master ad node) ,nexus, sonarQube
+
+####### On Jenkins server ############
+first update your apt package index: sudo apt update
+check if Java is already installed: java -version  
+xecute the following command to install the JRE from OpenJDK 11:sudo apt install default-jre
+verify java installation: java -version
+sudo apt install default-jdk
+javac -version
+
+
+Install Jenkins as a service
+Reference : https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
+Follow instruction for for latest update
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
+sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins	
+sudo systemctl start jenkins.service
+sudo systemctl status jenkins
+Open jenkins dashboard : <Server publicIp:8080> http://ec2-13-233-151-49.ap-south-1.compute.amazonaws.com:8080/login?from=%2F
+Initial password : /var/lib/jenkins/secrets/initialAdminPassword
+Install suggested plugins 
+/usr/lib/jvm/java-11-openjdk-amd64
+
+ *****GIT installation ***
+apt-get update
+apt-get install git
+git --version ( to verify git version )
+
+***Maven installation ***
+cd /usr/local
+wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+sudo tar xvf apache-maven-3.6.3-bin.tar.gz
+ln -s apache-maven-3.6.3 apache-maven
+sudo vi /etc/profile.d/apache-maven.sh
+ please insert below lines to /etc/profile.d/apache-maven.sh
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export M2_HOME=/usr/local/apache-maven
+export MAVEN_HOME=/usr/local/apache-maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+source /etc/profile.d/apache-maven.sh
+mvn -version ( to verify maven version )
+easy way to install - sudo apt install maven
+
+####### On Sonar server #######
+Docker installaton : 
+Reference : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
+
+apt-get update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+docker --version
+docker run -d -p 9000:9000 sonarqube:lts
+
+############### On Nexus Server ########################
+Java installation 
