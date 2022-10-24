@@ -10,7 +10,8 @@
 * Microservices Fundamentals
 * API Fundamental
 
-****Source Code Management****
+**Source Code Management******
+
 * Distributed version control and Centralized version control
 * Introduction of Git
 * Git Concepts and Architecture
@@ -19,9 +20,9 @@
 * Git rebase vs Git merge
 * Comparing commits, branches and workspace
 
-****Build Management : Maven and Gradle****
+**Build Management : Maven and Gradle******
 
-****Maven****
+**Maven******
 
 * Introduction to Apache Maven
 * Advantage of Apache Maven over other build tools
