@@ -10,7 +10,7 @@
 * Microservices Fundamentals
 * API Fundamental
 
-**Source Code Management******
+**Source Code Management**
 
 * Distributed version control and Centralized version control
 * Introduction of Git
@@ -20,9 +20,9 @@
 * Git rebase vs Git merge
 * Comparing commits, branches and workspace
 
-**Build Management : Maven and Gradle******
+**Build Management : Maven and Gradle**
 
-**Maven******
+**Maven**
 
 * Introduction to Apache Maven
 * Advantage of Apache Maven over other build tools
@@ -37,7 +37,7 @@
 * Playing with multiples Maven Goals
 * Introducing Maven Dependencies
 
-**Gradle******
+**Gradle**
 
 * What is Gradle?
 * Why Gradle?
@@ -47,7 +47,7 @@
 * Project Structure in Gradle
 * Gradle Tasks
 
-**Code Analysis and Securing Code : SonarQube ******
+**Code Analysis and Securing Code : SonarQube**
 
 * What is SonarQube?
 * Benefits of SonarQube?
@@ -60,7 +60,7 @@
 * Installing and configuring SonarQube in Linux
 * Basic Workflow in SonarQube using Command line
 
-**Unit Testing, Acceptance Testing and Code coverage:Junit, Jacoco, Selenium******
+**Unit Testing, Acceptance Testing and Code coverage:Junit, Jacoco, Selenium**
 
 **Junit**
 
@@ -83,9 +83,21 @@
 * Create a Report using Jacoco
 * Demo - Complete workflow of Jacoco with Maven and Java Project
 
-**Package  Management: Nexus******
+**Package  Management: Nexus**
 
-CI/ CD Using Jenkins 
+**WebServer : Apache HTTP and Nginx**
+
+* Introduction to web server
+* Overview NGINX
+* NGINX vs Apache
+
+**Configuration and Deployment Management: Ansible**
+
+**Container Orchestration : Kubernetes and Helm Introdution**
+
+**Infrastructure Coding: Terraform**
+
+**Continuous Integration: Jenkins **
 
 
 
