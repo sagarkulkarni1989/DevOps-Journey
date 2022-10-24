@@ -36,6 +36,54 @@
 * Playing with multiples Maven Goals
 * Introducing Maven Dependencies
 
+**Gradle******
+
+* What is Gradle?
+* Why Gradle?
+* Installing and Configuring Gradle
+* Build Java Project with Gradle
+* Dependency Management in Gradle
+* Project Structure in Gradle
+* Gradle Tasks
+
+**Code Analysis and Securing Code : SonarQube ******
+
+* What is SonarQube?
+* Benefits of SonarQube?
+* Alternative of SonarQube
+* Understanding Various License of SonarQube
+* Architecture of SonarQube
+* How SonarQube works?
+* Components of SonarQube
+* SonarQube runtime requirements
+* Installing and configuring SonarQube in Linux
+* Basic Workflow in SonarQube using Command line
+
+**Unit Testing, Acceptance Testing and Code coverage:Junit, Jacoco, Selenium******
+
+**Junit**
+
+* What is Unit Testing?
+* Tools for Unit Testing
+* What is Junit?
+* How to configure Junit?
+* Writing Basic Junit Test cases
+* Running Basic Junit Test cases
+* Junit Test Results
+
+**Jacoco**
+
+* Overview of Code coverage process
+* Introduction of Jacoco
+* How Jacoco works!
+* How to install Jaoco?
+* Setup testing Environment with Jacoco
+* Create test data files using Jacoco and Maven
+* Create a Report using Jacoco
+* Demo - Complete workflow of Jacoco with Maven and Java Project
+
+**Package  Management: Nexus******
+
 CI/ CD Using Jenkins 
 
 
