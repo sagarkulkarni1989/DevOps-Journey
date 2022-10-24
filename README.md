@@ -99,6 +99,64 @@
 
 **Continuous Integration: Jenkins **
 
+* Lets understand Continuous Integration
+* What is Continuous Integration
+* Benefits of Continuous Integration
+* What is Continuous Delivery
+* What is Continuous Deployment
+* Continuous Integration Tools
+* What is Jenkins
+* History of Jenkins
+* Jenkins Architecture
+* Jenkins Vs Jenkins Enterprise
+* Jenkins Installation and Configurations
+* Jenkins Dashboard Tour
+* Understand Freestyle Project
+* Freestyle General Tab
+* Freestyle Source Code Management Tab
+* Freestyle Build Triggers Tab
+* Freestyle Build Environment
+* Freestyle Build
+* Freestyle Post-build Actions
+* Manage Jenkins
+* My Views
+* Credentials
+* People
+* Build History
+* Creating a Simple Job
+* Simple Java and Maven Based Application
+* Simple Java and Gradle Based Application
+* Jobs Scheduling in Jenkins
+* Manually Building
+* Build Trigger based on fixed schedule
+* Build Trigger by script
+* Build Trigger Based on pushed to git
+* Useful Jobs Configuration
+* Jenkins Jobs parameterised
+* Execute concurrent builds
+* Jobs Executors
+* Build Other Projects
+* Build after other projects are built
+* Throttle Builds
+* Jenkins Integration with other tools: JIRA, GIT, SonarQube, Maven, Junit, Ansible, Docker, Nexus
+* Notification & Feedback in Jenkins
+* CI Build Pipeline & Dashboard
+* Email Notification
+* Advance Email Notification
+* Jenkins Advance - Administrator
+* Security in Jenkins
+* Authorization in Jenkins
+* Authentication in Jenkins
+* Managing folder/subfolder
+* Jenkins Upgrade
+* Jenkins Backup
+* Jenkins Restore
+* Jenkins Command Line
+* Reports in Jenkins
+* Jenkins Node Managment
+
+
+
 
 
 
