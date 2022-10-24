@@ -20,7 +20,9 @@
 * Comparing commits, branches and workspace
 
 ****Build Management : Maven and Gradle****
-**Maven**
+
+****Maven****
+
 * Introduction to Apache Maven
 * Advantage of Apache Maven over other build tools
 * Understanding the Maven Lifecycle and Phase
