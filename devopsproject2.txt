@@ -1,0 +1,27 @@
+Devops Project
+
+Discard old builds
+Do not allow concurrent builds
+Do not allow the pipeline to resume if the controller restarts
+GitHub project
+Pipeline speed/durability override
+Preserve stashes from completed builds
+This project is parameterized
+Throttle builds
+
+Build Triggers
+Build after other projects are built
+Build periodically
+Gerrit event
+GitHub hook trigger for GITScm polling
+Poll SCM
+Quiet period
+Trigger builds remotely (e.g., from scripts)
+
+Pipeline 
+Repository browser 
+Additional Behaviour 
+
+waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+
+nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'admin', groupId: 'com.example', nexusUrl: '13.234.66.0:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-release', version: '1.0.0'

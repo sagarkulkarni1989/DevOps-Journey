@@ -1,4 +1,4 @@
-
+	https://www.youtube.com/watch?v=JZL2tOncw3U&list=PLLu1bCv5AByGUZUl4N2fhZdtHg0pd7G8E
 ##DevOps Project 1 #######
 CI/CD pipeline for Java application to deploy 
 GIT/GITHUB
@@ -24,15 +24,24 @@ five instances : Ubuntu, security group etc
 Jenkins, kubernetes 2 (Master ad node) ,nexus, sonarQube
 
 ####### On Jenkins server ############
-first update your apt package index: sudo apt update
-check if Java is already installed: java -version  
-xecute the following command to install the JRE from OpenJDK 11:sudo apt install default-jre
-verify java installation: java -version
-sudo apt install default-jdk
-javac -version
+- Java Installation - permenant path setup
+- Jenkins
+- GIT
+- Maven
+- Helm
+- Docker
+- Datree
 
+Java Installation: 
+1] first update your apt package index: sudo apt update
+2] check if Java is already installed: java -version  
+3] Execute the following command to install the JRE from OpenJDK 11:sudo apt install default-jre
+4] verify java installation: java -version
+5] sudo apt install default-jdk
+6] javac -version
 
 Install Jenkins as a service
+
 Reference : https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
 Follow instruction for for latest update
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
@@ -44,14 +53,14 @@ sudo systemctl status jenkins
 Open jenkins dashboard : <Server publicIp:8080> http://ec2-13-233-151-49.ap-south-1.compute.amazonaws.com:8080/login?from=%2F
 Initial password : /var/lib/jenkins/secrets/initialAdminPassword
 Install suggested plugins 
-/usr/lib/jvm/java-11-openjdk-amd64
 
- *****GIT installation ***
+GIT installation: 
+
 apt-get update
 apt-get install git
 git --version ( to verify git version )
 
-***Maven installation ***
+***Maven installation:
 cd /usr/local
 wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 sudo tar xvf apache-maven-3.6.3-bin.tar.gz
@@ -67,7 +76,21 @@ source /etc/profile.d/apache-maven.sh
 mvn -version ( to verify maven version )
 easy way to install - sudo apt install maven
 
+*****Helm Installation ****
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+*** Docker installation 
+follow the below steps 
+
+**** Datree **
+	
+
 ####### On Sonar server #######
+1] Docker
+2] sonarqbe container 
+
 Docker installaton : 
 Reference : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
 
@@ -81,6 +104,93 @@ sudo apt install docker-ce
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 docker --version
 docker run -d -p 9000:9000 sonarqube:lts
+default user name and password: admin/admin
 
 ############### On Nexus Server ########################
 Java installation 
+nexus installation
+ sudo apt-get -y install default-jdk
+    2  wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    4  tar -xvf latest-unix.tar.gz
+    6  cd nexus-3.42.0-01/bin/
+    7  ./nexus start
+    8  ./nexus status
+    9  apt install openjdk-8-jre-headless -y
+   10  sudo apt install default-jre
+   11  ./nexus start
+   12  java -version
+   13  sudo apt-get install openjdk-8-jdk
+   14  ./nexus start
+   15  sudo apt install openjdk-8-jre
+   16  sudo apt install openjdk-11-jre
+   17  apt update
+   18  ./nexus start
+   19  apt install openjdk-8-jre-headless -y
+   20  ./nexus start
+   21  ./nexus status
+/home/ubuntu/sonatype-work/nexus3/admin.password
+
+#########Install kubeadm on aws machines
+
+
+kubeadm join 172.31.35.140:6443 --token bcvzcs.koyuc340vuxtepff \
+        --discovery-token-ca-cert-hash sha256:92f5a0f2d8e974bf8a66f8267d913269d96cb47b1de26a8a870be382617b85e9
+
+
+On Master : 
+ mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+***********Error faced during installation*******
+error faced during execting kubeadm init 
+[ERROR CRI]: container runtime is not running: output: E1022 02:28:50.722790    8560 remote_runtime.go:948] "Status from runtime service failed" err="rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService"
+time="2022-10-22T02:28:50Z" level=fatal msg="getting status of runtime: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService"
+
+WA: 
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
+sudo kubeadm init
+********************************************************************
+
+kubeadm join 172.31.35.140:6443 --token bcvzcs.koyuc340vuxtepff \
+--discovery-token-ca-cert-hash sha256:92f5a0f2d8e974bf8a66f8267d913269d96cb47b1de26a8a870be382617b85e9
+
+
+***************************Configuration steps
+1] On Jenkins server 
+Code repository : https://github.com/sagarkulkarni1989/CICD_Java_gradle_application.git  Branch : devops
+2] Configure Sonarqube in jenkins 
+	Install required plugins : Manage Jenkins - Manage Plugins - Available- <Search for plugins and install it>
+	Required plugins: Sonarqube scanner, Sonar Gerrit, Sonar generic coverage, Sonar quality gates, Quality gates, Docker, docker pipeline
+	Server authentication token - Connect to Sonarqube - Administration - Security - Users - Click on Update token - 
+	Example: jenkins1  dd592a583d1245ccac4d6f1c832b9e22d6fc6851
+	Manage Jenkins - Configure system - SonarQube servers - <tick> Environment variables  <name> and <Server URL - SonarQube server public IP>
+ 	Add this token into Jenkins credentials
+	Manage Jenkins - Manage Credentials- systems- jenkins - add credentials - 
+	Kind(Secret text) - Scope - Global - Secret <mention token> ID <give any name> 
+	Manage Jenkins - Manage Credentials- systems- jenkins - add credentials
+	Kind: Secret text
+	Scope: global
+	secret: admin
+	ID: docker_pass
+	create webhook to have communication between jenkins and sonarqube To create webhook navigate to administration --> configuration --> webhooks --> then provide name and url of your jenkins sufixed with /sonarqube-webhook/
+
+3] Adding Docker build and docker image push stage in jenkinfile, creating docker private repo and configuring jenkins host to push the images to private registry.
+On Nexus console 
+Repositories - Create repository - docker hosted 
+
+on Jenkins server :
+check insecure registry
+docker info
+vim /etc/docker/daemon.json
+
+{ "insecure-registries":["3.108.52.171:8083"] }
+systemctl restart docker
+docker login -u nexus_username -p nexus_pass nexus_ip:8083
+
+
+
+
+	

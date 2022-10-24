@@ -1,0 +1,45 @@
+DevOps Journey:
+
+Important topics needs to understand:
+Jenkins : https://www.youtube.com/watch?v=d6BU8LBc9Ow&list=PLLYW3zEOaqlKmPyhjIrT4RmmQDQYYrTjk
+https://www.youtube.com/watch?v=EzOyHf2KwWI&list=PL6XT0grm_Tfi21F8O0TvHmb78P2uEmhDq
+https://www.youtube.com/watch?v=89yWXXIOisk&list=PLhW3qG5bs-L_ZCOA4zNPSoGbnVQ-rp_dG
+
+Different between Build Periodically and Poll SCM
+Copy Jenkins job from one server to another 
+Secret text in jenkins to securing sensetive information
+Jenkins backup
+multi branch pipeline 
+Jenkins shared libraby
+Jenkins build triger option
+How to pass parameters to downstream
+what is blue ocean 
+Create a user + Manage + assign roles
+Using the role based Authorization strategy 
+what is jenkins pipeline 
+master slave configuration 
+Jenkins dynamic slave using docker 
+
+Devops project
+Networking concept 
+AWS - few services 
+kubernetes 
+Docker 
+Ansible 
+	
+1] Introduction
+2] about my devops journey 
+3] 
+
+
+
+##Simple DevOps Project :
+GIT- Jenkins - war file deployment - AWS EC2 instance 
+
+	Any douts you can send whatsapp message over 8371036198	
+
+
+
+
+
+
