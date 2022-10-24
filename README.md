@@ -1,14 +1,11 @@
-microservices-architect-config-starter
-Microservices Architecture Configuration Starter Sample
+* Let’s Understand about Software Development Model
+* Overview of Waterfall Development Model
+* Challenges of Waterfall Development Model
+* Overview of Agile Development Model
+* What is DevOps?
+* Waterfall -> Agile -> CI/CD -> DevOps -> DevSecOps
+* What is DevSecOps?
+* What is SRE?
+* Microservices Fundamentals
+* API Fundamental
 
-Architecture of sample multiple microservices developed in different technologies - Spring Boot, Node.js, Python, React.js in a project. Microservices connected by an API Gateway using Netflix Zuul.
-
-Application Architecture
-The application consists of 6 different Microservices
-
-shoes-microservice-spring-boot - Spring Boot App with Shoe data
-offers-microservice-spring-boot - Spring Boot App with Offers data
-cart-microservice-nodejs - Node.js App with Cart data
-wishlist-microservice-python - Python App with Wishlist data
-zuul-api-gateway - API gateway that proxies all the micro-services
-ui-web-app-reactjs - Single Page Application that provides the UI
