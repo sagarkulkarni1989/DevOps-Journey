@@ -1,4 +1,4 @@
-*DevOps Project : Valaxy technologies*
+* DevOps Project : Valaxy technologies *
 
 
 
