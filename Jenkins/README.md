@@ -49,4 +49,11 @@
 - Blue Ocean
 - LDAP Cnfiguration for authn
 
+**Timeline**
+Week1 : Introduction and Installation, setup
+Week2 : Project1 and Build section
+Week3 : Pipeline and project2 
+Week4: Security and advanced
+
+
   
