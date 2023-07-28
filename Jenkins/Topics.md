@@ -76,4 +76,37 @@ This command deploys the project's artifacts to a remote Maven repository (if sp
 - Visual Studio Code: https://code.visualstudio.com/download
 - Mobaxtream: https://mobaxterm.mobatek.net/download.html  
 
+**Sample Maven Project**
 
+**Manual way to build It**
+
+# Freestyle and Jenkins Pipeline
+In Jenkins, there are two primary types of jobs used for build automation and continuous integration: Freestyle projects and Pipeline projects (also known as Jenkins Pipeline). Each type of job has its own approach to defining and configuring the build process.
+
+**Freestyle Projects**
+
+   Freestyle projects are the traditional and simpler form of Jenkins jobs. They provide a user-friendly web interface to configure the build process using a series of build steps and configurations.
+
+**Features:**
+
+**Easy Configuration:** Freestyle projects have a straightforward web-based UI, making it easy to configure build steps, triggers, and post-build actions.
+
+**GUI-based:** Configurations are done through a graphical user interface, and no scripting is required.
+
+**Limited Reusability:** Build steps are specific to each project, and it is challenging to reuse configurations across multiple projects without duplication.
+
+**Lack of Version Control:** Freestyle jobs don't store their configuration as code, making it harder to track changes and manage job configurations using version control systems.
+
+**Pipeline Projects (Jenkins Pipeline):**
+
+Jenkins Pipeline is a more advanced and flexible way to define the build process as code. It allows you to create complex build pipelines using a domain-specific language (DSL) based on Groovy scripting.
+
+**Features:**
+
+**Scripted Pipelines:** Pipeline jobs are defined using a script written in Groovy DSL, providing a high degree of flexibility and reusability.
+
+**Code as Configuration:** Pipeline configurations are versioned along with the source code in the project's version control system, enabling better traceability and reproducibility of build processes.
+
+**Extensibility:** Jenkins Pipeline supports defining custom functions, libraries, and shared pipelines, making it easier to reuse code across multiple projects.
+
+**Continuous Delivery:** Pipelines can model entire continuous delivery workflows, including build, test, deployment, and manual approvals.
