@@ -110,3 +110,72 @@ Jenkins Pipeline is a more advanced and flexible way to define the build process
 **Extensibility:** Jenkins Pipeline supports defining custom functions, libraries, and shared pipelines, making it easier to reuse code across multiple projects.
 
 **Continuous Delivery:** Pipelines can model entire continuous delivery workflows, including build, test, deployment, and manual approvals.
+
+# Dashboard
+
+**Types of Jobs**
+
+Jenkins offers several types of items (projects) that you can create when setting up a new job. These job types allow you to implement various build and automation workflows based on your project's requirements.
+
+**Freestyle project:**
+This is the traditional type of job in Jenkins, where you can configure the build steps, triggers, and post-build actions using a graphical user interface. It is suitable for simple and straightforward build processes.
+
+**Pipeline:**
+Jenkins Pipeline allows you to define your build process as code using a domain-specific language (DSL) based on Groovy. With pipelines, you can model complex build, test, and deployment workflows, as well as integrate with version control systems.
+
+**Multi-branch pipeline:**
+This type of job is an extension of the Pipeline project, optimized for multi-branch development workflows. It automatically detects branches in your version control repository and creates individual pipelines for each branch, making it ideal for continuous integration with multiple branches.
+
+**Folder:**
+A folder is a way to organize jobs hierarchically within Jenkins. You can create folders to group related jobs together, providing better organization and management of projects.
+
+**Multi-configuration project**
+
+A Multi-configuration project, also known as a Matrix project, is a type of item in Jenkins that allows you to perform a build or test in multiple configurations simultaneously. It is useful when you need to test your application or code against different combinations of platforms, operating systems, environments, or parameters.
+
+**General**
+In Jenkins, the "General" options refer to the basic settings and configurations that apply to a Jenkins job (item) regardless of its type.
+
+**- Discard Old Builds:**
+This option allows you to control the number of builds to keep. You can specify the maximum number of builds to retain, the maximum number of days to keep builds, or both. Older builds beyond the specified limits will be automatically deleted to save disk space.
+
+**- GitHub Project:**
+If your Jenkins job is associated with a GitHub repository, you can specify the GitHub project's URL in this option. It helps Jenkins display build status and links back to GitHub.
+
+- This project is parameterized:
+When enabled, this option allows you to add parameters to the job, enabling you to customize the build based on user input or other dynamic values.
+    - Jenkins supports several parameter types, including:
+    - String Parameter: Allows you to define a simple text parameter.
+    - Choice Parameter: Presents a dropdown menu with predefined choices.
+    - Boolean Parameter: Represents a true/false or yes/no parameter.
+    - File Parameter: Enables users to upload a file when triggering the job.
+
+**- Throttle builds**
+   Throttle Builds is a Jenkins plugin that allows you to limit the number of concurrent builds for specific jobs or for jobs within certain categories. This plugin is particularly useful when you have limited resources, such as build agents or hardware capacity, and you want to control how many builds of a particular job or group of jobs can run simultaneously.
+  
+**- Concurrent Build:**
+By default, Jenkins allows concurrent builds of the same job. You can set the maximum number of concurrent builds to control how many simultaneous builds are allowed.
+
+**- Quiet Period:**
+The quiet period is the time delay between the moment Jenkins is triggered and when the build actually starts. It helps avoid excessive builds triggered by multiple changes in quick succession.
+
+**Build Triggers**
+
+Build Triggers in Jenkins are mechanisms that define when and how a Jenkins job (or pipeline) should be triggered to start a build. Jenkins provides various build triggers to accommodate different use cases and automation scenarios.
+
+**- Trigger builds remotely (e.g., from scripts)**
+  In Jenkins, you can trigger builds remotely using various methods, such as API calls, scripts, or URL-based triggers. This feature allows you to automate the build process and initiate builds programmatically from external systems, scripts, or other tools.
+  
+         - Using Jenkins Remote API (Jenkins REST API):
+         
+Jenkins provides a RESTful API that allows you to interact with Jenkins programmatically. You can trigger a build remotely by making an HTTP POST request to the Jenkins API 
+         - Using Jenkins CLI (Command Line Interface):
+         
+Jenkins CLI is a command-line tool that allows you to interact with Jenkins from the command line. You can trigger a build using the build command of the Jenkins CLI.
+
+- Build after other projects are built
+- Build periodically
+- GitHub hook trigger for GITScm polling
+- Poll SCM
+
+**Post-build Actions**
