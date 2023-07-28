@@ -77,7 +77,20 @@ This command deploys the project's artifacts to a remote Maven repository (if sp
 - Mobaxtream: https://mobaxterm.mobatek.net/download.html  
 
 **Sample Maven Project**
-
+- sample github repository : https://github.com/jenkins-docs/simple-java-maven-app.git
+- This build required maven version 3.8.6 and above
+- delete existing maven from system : sudo apt-get purge maven
+- wget <take latest build from official page>
+- tar -xvf apacheXXXX.tar.gz
+- sudo mv apacheXXXX /usr/share/maven
+- echo 'export PATH="$PATH:/usr/share/maven"' >> ~/.bashrc
+- echo 'export PATH="$PATH:/usr/share/maven/bin"' >> ~/.bashrc
+- source ~/.bashrc
+- On Jenkins - ManageJenkins - Tools - maven - install automatically - 3.9.3 vrsion
+- create new job - maven_project
+       - Source code: git : <provide above sample repo>
+       - Build steps : Shell : echo "Maven build"   and java -version
+       - Add Build steps: Invoke top-level Maven targets - Goals - clean install
 **Manual way to build It**
 
 # Freestyle and Jenkins Pipeline
@@ -179,3 +192,4 @@ Jenkins CLI is a command-line tool that allows you to interact with Jenkins from
 - Poll SCM
 
 **Post-build Actions**
+
