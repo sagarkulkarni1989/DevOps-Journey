@@ -91,11 +91,38 @@ This command deploys the project's artifacts to a remote Maven repository (if sp
        - Source code: git : <provide above sample repo>
        - Build steps : Shell : echo "Maven build"   and java -version
        - Add Build steps: Invoke top-level Maven targets - Goals - clean install
+  
+**Practical: Parameterized Job**
+
+ Create a freestyle job using build parameters - string,multi-line string, password, choice, credentials,Boolean, file parameters
+ 
+ - This project is parameterized
+ - string parameter : Project  default value : Moodys
+ - Choice parameter: Shift_days  Mon, Tue, Wed
+ - Multi-line String Parameter  About
+ - Boolean Parameter : status
+ - File Parameter  : path
+ - Credentials Parameter : credentials
+ - Password Parameter : password
+ - Build step : Execute Windows batch command
+   
+ ```
+   echo %Project
+   echo %Browser%
+  echo %About%
+  echo %status%
+  echo %path%
+  echo %password%
+  echo %credentials%
+
+```
+  
 **Manual way to build It**
 
 # Freestyle and Jenkins Pipeline
 In Jenkins, there are two primary types of jobs used for build automation and continuous integration: Freestyle projects and Pipeline projects (also known as Jenkins Pipeline). Each type of job has its own approach to defining and configuring the build process.
-
+   
+    
 **Freestyle Projects**
 
    Freestyle projects are the traditional and simpler form of Jenkins jobs. They provide a user-friendly web interface to configure the build process using a series of build steps and configurations.
