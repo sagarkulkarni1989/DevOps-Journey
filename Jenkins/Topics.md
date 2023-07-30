@@ -116,7 +116,48 @@ This command deploys the project's artifacts to a remote Maven repository (if sp
   echo %credentials%
 
 ```
-  
+
+# Build Trigger 
+
+**Trigger builds remotely (e.g., from scripts)**
+
+Jenkins can be triggered remotely by sending an HTTP POST request to a specific URL endpoint. This can be useful for integrating Jenkins with other tools or services.
+
+**Build after other projects are built**
+
+To set up a Jenkins job to build after other projects are built, you can use the "Build after other projects are built" trigger. This trigger allows you to specify one or more projects that need to complete successfully before the current job starts its execution.
+ 
+**Build periodically**
+
+In Jenkins, the "Build periodically" trigger allows you to schedule builds based on a cron expression. This means you can set up a specific time interval for your Jenkins job to run automatically.
+
+```
+* * * * * *
+| | | | | |
+| | | | | +-- Year (optional) (1970–2099)
+| | | | +---- Day of the Week (0–7) (Sunday is both 0 and 7)
+| | | +------ Month (1–12)
+| | +-------- Day of the Month (1–31)
+| +---------- Hour (0–23)
++------------ Minute (0–59)
+```
+- An asterisk (*) represents all possible values for that field.
+- A hyphen (-) denotes a range of values. For example, 1-5 means from 1 to 5.
+- A comma (,) allows you to specify a list of values. For example, 1,3,5 means 1, 3, and 5.
+- A forward slash (/) allows you to define a step value. For example, */5 in the minute field means every 5 minutes.
+Examples:
+
+- Run a task every minute: * * * * *
+- Run a task every day at 3:30 PM: 30 15 * * *
+- Every 2 min */2 * * * *
+- Every saturday and sunday 17.00PM 0 17 * * 6,7
+
+**Practical of **
+
+**GitHub hook trigger for GITScm polling**
+   
+ **Poll SCM**
+
 **Manual way to build It**
 
 # Freestyle and Jenkins Pipeline
