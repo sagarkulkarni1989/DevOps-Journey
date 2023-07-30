@@ -152,14 +152,44 @@ Examples:
 - Every 2 min */2 * * * *
 - Every saturday and sunday 17.00PM 0 17 * * 6,7
 
-**Practical of **
-
 **GitHub hook trigger for GITScm polling**
+
+Jenkins can listen for incoming HTTP requests (webhooks) from external services, such as version control systems or issue trackers. When a webhook event occurs (e.g., code push, pull request created), Jenkins triggers a build.
    
  **Poll SCM**
 
-**Manual way to build It**
+ This trigger checks the version control system (e.g., Git, Subversion) for changes at a specified interval. If there are new changes, it triggers a build.
 
+**Build Trigger Practice**
+
+- Trigger builds remotely (e.g., from scripts) :https://www.devopsschool.com/blog/how-to-trigger-builds-remotely-in-jenkins/
+  
+            - Go to configuration of loggend in user- Ex.admin
+            - Create new API token, save it on notepad
+            - Go to job configuration - Build trigger- Trigger builds remotely (e.g., from scripts)
+            - Authentication Token  : provide any random value and save job
+            - Open Git Bash - and execute
+            - curl -X POST http://admin:115c8edaf670ddb9d4e104c9e47c9765d5@localhost:8080/job/first/build?token=abc123
+
+- Build after other projects are built
+            
+            - Check -Build after other projects are built
+            - Add job name
+
+- Build periodically
+
+            - */2 * * * *
+
+ - WebHook (This will not work on jenkins on local machine, need to use jenkins on aws cloud instance)
+
+            - Go to your GitHub repository and click on ‘Settings’.
+            - Click on Webhooks and then click on ‘Add webhook’
+            - In the ‘Payload URL’ field, paste your Jenkins environment URL. At the end of this URL add /github-webhook/. In the ‘Content type’ select: ‘application/json’ and leave the ‘Secret’ field empty.
+            - In the page ‘Which events would you like to trigger this webhook?’ choose ‘Let me select individual events.’ Then, check ‘Pull Requests’ and ‘Pushes’. At the end of this option, make sure that the ‘Active’ option is checked and click on ‘Add webhook’.
+            - In Jenkins Jobs - Build trigger - GitHub hook trigger for GITScm polling
+
+
+  
 # Freestyle and Jenkins Pipeline
 In Jenkins, there are two primary types of jobs used for build automation and continuous integration: Freestyle projects and Pipeline projects (also known as Jenkins Pipeline). Each type of job has its own approach to defining and configuring the build process.
    
