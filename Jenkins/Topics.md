@@ -188,7 +188,13 @@ Jenkins can listen for incoming HTTP requests (webhooks) from external services,
             - In the page ‘Which events would you like to trigger this webhook?’ choose ‘Let me select individual events.’ Then, check ‘Pull Requests’ and ‘Pushes’. At the end of this option, make sure that the ‘Active’ option is checked and click on ‘Add webhook’.
             - In Jenkins Jobs - Build trigger - GitHub hook trigger for GITScm polling
 
+# How to deploy war file in Tomcat using Jenkins? 
+https://www.youtube.com/watch?v=KHnQ0n4deqI
 
+# jenkins email notification configuration 
+https://www.youtube.com/watch?v=MFgbp00hbVI
+
+# Master Slave configuration
   
 # Freestyle and Jenkins Pipeline
 In Jenkins, there are two primary types of jobs used for build automation and continuous integration: Freestyle projects and Pipeline projects (also known as Jenkins Pipeline). Each type of job has its own approach to defining and configuring the build process.
