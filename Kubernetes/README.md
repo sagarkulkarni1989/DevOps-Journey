@@ -14,7 +14,7 @@ sudo systemctl status docker
 
 ```
 
-
+**Minikube installation**
 
 ```
 
@@ -33,3 +33,58 @@ kubectl version -o yaml
 minikube start --driver=docker --force
 
 ```
+
+# Cluster setup using kind 
+
+```
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+kind create cluster     # It will create single node cluster
+```
+
+* To create multi-Node cluster
+* Create a file kind-config
+
+```
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+```
+
+```
+kind create cluster --name=multi-node-cluster --config=kind-config
+kubectl get no    # Validate cluster and node is created or not
+kind get clusters
+kind delete cluster --name=<cluster_name>   # Delete cluster 
+```
+*by default in kind port forwarding is off 
+ - create a file kind-ingress-config
+
+```
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+```
+
+```
+kind create cluster --name=ingress-cluster --config=kind-ingress-config
+```
+
