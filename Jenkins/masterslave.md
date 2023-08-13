@@ -140,3 +140,11 @@ sudo cat ~/.ssh/id_rsa
  - Launch method:Launch agent via execution of command on the controller
  - Custom WorkDir path: If you keep blank it will automatically refer root directory custom Remoting work directory will be used instead of the Agent Root Directory
  - Availability:Keep this agent online as much as possible
+ - Once you save above configuration you will get a command which should be executed in the agent. it contains agent.jar, a secret-file, and a jnlp file
+ - Change IP address before executing below command - IP address of master machine
+ - Once connected you can create or edit a job to chose this option in the Restrict where this project can be run
+
+  ```
+   curl -sO http://54.84.175.179:8080/jnlpJars/agent.jar
+   java -jar agent.jar -jnlpUrl http://54.84.175.179:8080/computer/java%2Dnode/jenkins-agent.jnlp -secret 048ad980b94153362fedfb85123e72c0f0093f53b8fec44849f5848ddf29b2b0 -workDir "/opt/build"
+  ```
