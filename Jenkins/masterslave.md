@@ -152,4 +152,79 @@ sudo cat ~/.ssh/id_rsa
 
 **Docker Slave - Dynamic slave provisioning**
 
-Install docker
+![Screen Shot 2022-08-15 at 11 35 54 AM](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/51bbf99b-428d-4b1f-8abd-967423b5e3e8)
+
+- Better resource utilization
+- Customized agents as it can run different builds like Java 8, Java 11
+- Scalability
+
+
+```
+Install docker: sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+
+```
+
+Configure Docker Host with Remote API
+```
+sudo vi /lib/systemd/system/docker.service
+You can replace with below line:
+ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
+sudo systemctl daemon-reload
+sudo service docker restart
+```
+Validate API by executing below curl command
+```
+curl http://localhost:4243/version
+Download Dockerfile from below repo.
+git clone https://github.com/akannan1087/jenkins-docker-slave; cd jenkins-docker-slave
+
+Build Docker image
+sudo docker build -t my-jenkins-slave .
+sudo docker images
+```
+
+Configure Jenkins Server with Docker plug-in
+
+Now login to Jenkins Master. Make sure you install Docker plug-in in Jenkins
+
+Now go to Manage Jenkins -> Configure Nodes Cloud
+
+Click on Docker Cloud Details
+
+Enter docker host dns name or ip address
+
+tcp://docker_host_dns:4243
+
+Make sure Enabled is selected
+
+Now click on Test Connection to make sure connecting with docker host is working. 
+
+![image](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/26d5e928-4cd2-4c6e-870c-53964e6fd3c2)
+
+Step 4 - Configure Docker Agent Templates
+
+Now click on Docker Agent templates:
+
+Enter label as "docker-slave" and give some name
+
+Click on Enabled
+
+Now enter the name of the docker image you have built previously in docker host.
+
+enter /home/jenkins as Remote file system root
+
+![image](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/fd2a4d2b-c671-49e9-a581-ee1738fcbc48)
+
+Choose Connect with SSH as connection method:
+
+![image](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/a7013bb4-7991-47b2-b576-fae7ff662a51)
+
+choose Never Pull as pull strategy as we have already image stored in DockerHost.
+
+
+Enter SSH credentials per your Dockerfile - jenkins/password
+
+
