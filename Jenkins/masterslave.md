@@ -10,6 +10,9 @@ different ways to configure the Master-Slave setup in Jenkins
      
 In this configuration, Jenkins slaves connect to the master using SSH. SSH agents provide a more secure way of communication compared to JNLP slaves, as the connection is encrypted. SSH agents are useful when there 
   is a need for enhanced security and the ability to work across different networks.
+
+  - Docker Agent
+    Docker containers can be used as Jenkins agents. Each container can be spun up on-demand to execute specific build jobs and then destroyed after the job is done.
     
 
 
