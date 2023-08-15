@@ -35,7 +35,7 @@ A Slave is a Java executable that runs on a remote machine. Following are the ch
 
 **Pre-requisite**
 
-- Launch three EC2 Instances - Jenkins master, Slave1 and Slave2
+- Launch three EC2 Instances - Jenkins master, Slave1, Slave2 and ocker Host(For docker host you can create new VM or use existing)
 - AMI - Ubuntu 20.04 , Instance type - t2.micro , Generate new keypair
 - Network Settings - default VPC, Security group - Create new with inbound rules - OPen all traffic (Not recommented in best practice but its only for practical purpose)
 - Configure storage - 15GB and Launch
@@ -144,7 +144,10 @@ sudo cat ~/.ssh/id_rsa
  - Change IP address before executing below command - IP address of master machine
  - Once connected you can create or edit a job to chose this option in the Restrict where this project can be run
 
+
   ```
    curl -sO http://54.84.175.179:8080/jnlpJars/agent.jar
    java -jar agent.jar -jnlpUrl http://54.84.175.179:8080/computer/java%2Dnode/jenkins-agent.jnlp -secret 048ad980b94153362fedfb85123e72c0f0093f53b8fec44849f5848ddf29b2b0 -workDir "/opt/build"
   ```
+
+**Docker Slave - Dynamic slave provisioning**
