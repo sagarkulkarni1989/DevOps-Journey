@@ -151,3 +151,5 @@ sudo cat ~/.ssh/id_rsa
   ```
 
 **Docker Slave - Dynamic slave provisioning**
+
+Install docker
