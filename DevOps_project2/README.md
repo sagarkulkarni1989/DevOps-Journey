@@ -120,7 +120,69 @@ open mychart/values.yaml.
 - Save the files, commit and push into repo
 - Create a namespace in EKS : kubectl create ns helm-deployment
 - Create a pipeline in Jenkins
+```
+pipeline {
+    agent any
+    
+    environment {
+        registry = "883889909700.dkr.ecr.ap-south-1.amazonaws.com/my-docker-repo1"
+    }
 
+    stages {
+        stage('checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sagarkulkarni1989/docker-spring-boot.git']])
+            }
+        }
+        
+        stage('Build Jar') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+        
+        stage ('Build Images') {
+            
+            steps {
+                
+                script {
+                    
+                    dockerImage = docker.build registry
+                    dockerImage.tag("$BUILD_NUMBER")
+                }
+            }
+        }
+        
+        stage ('Push Image'){
+            
+            steps {
+                script {
+                    
+                    sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 883889909700.dkr.ecr.ap-south-1.amazonaws.com'
+                    sh 'docker push 883889909700.dkr.ecr.ap-south-1.amazonaws.com/my-docker-repo1:$BUILD_NUMBER'
+                }
+            }
+            
+            
+        }
+        
+        stage ('Helm deploy') {
+            
+            steps {
+                
+                script {
+                    sh "helm upgrade first --install mychart --namespace helm-deployment --set image.tag=$BUILD_NUMBER"
+                }
+            }
+            
+        }
+    }
+}
+```
+
+- Build the pipeline
+
+![Screenshot 2023-05-13 at 4 18 07 PM](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/ed8ff094-d34e-4953-86b0-3fe67d8b5623)
 
 
   
