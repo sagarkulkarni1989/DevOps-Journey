@@ -77,8 +77,8 @@ Note the URL from step # 3 below, this will be used for tagging and pushing dock
 ```
 **Create Maven3 variable under Global tool configuration in Jenkins**
 
-Make sure you create Maven3 variable under Global tool configuration. 
-
+- Make sure you create Maven3 variable under Global tool configuration. 
+- Install Maven on Ubuntu Machine
 ![maven3](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/6fc734df-0518-4436-ae57-04699d3fe91e)
 
 
@@ -184,5 +184,23 @@ pipeline {
 
 ![Screenshot 2023-05-13 at 4 18 07 PM](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/ed8ff094-d34e-4953-86b0-3fe67d8b5623)
 
+- Verify deployment in EKS
 
-  
+  ```
+  helm ls -n helm-deployment
+  kubectl get pods -n helm-deployment
+  kubectl get services -n helm-deployment
+
+  ```
+
+- Access Springboot App Deployed in EKS cluster : URL you will get from services External IP
+- Cleanup EKS Cluster using eksctl
+    - To avoid charges from AWS, you should clean up resources.
+
+  ```
+  eksctl delete cluster --name demo-eks --region us-east-1    # change region name
+  Delete EC2 Instance 
+  ```
+
+  ****Reference***
+  https://www.coachdevops.com/2023/05/how-to-deploy-springboot-microservices_13.html
