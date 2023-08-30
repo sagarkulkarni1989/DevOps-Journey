@@ -40,7 +40,10 @@ Instead of writing the same code again and again in multiple pipelines, you can 
 
    - Write the Shared Library Code
 
-      Write your reusable pipeline logic in the appropriate Groovy files within the src/ and vars/ directories. 
+       - Write your reusable pipeline logic in the appropriate Groovy files within the src/ and vars/ directories.
+       - Code is available here: https://github.com/sagarkulkarni1989/sharedlibs.git
+     
+     
 
    - Configure Jenkins
   
@@ -52,3 +55,38 @@ Instead of writing the same code again and again in multiple pipelines, you can 
         - Load implicitly: Enable this option if you want pipelines to automatically use the library without explicitly importing it.
 
    - Use the Shared Library in Pipelines:
+     
+      - Create a new job as a pipline
+      - Use sample hello world
+     
+  ```
+        @Library('javahome-demo') _
+
+        pipeline {
+            agent any
+
+        stages {
+            stage('Hello') {
+              steps {
+                welcome("devops class")
+            }
+        }
+        
+        stage('calculation'){
+            steps{
+                
+                script{
+                    
+                    calculator.add(25,75)
+                    calculator.mul(25,75)
+                }
+            }
+            
+        }
+    }
+   
+}
+
+
+ ```
+     
