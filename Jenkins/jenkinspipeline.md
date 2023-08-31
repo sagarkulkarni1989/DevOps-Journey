@@ -71,3 +71,28 @@ pipeline {
 }
 
 ```
+
+**pipeline**
+
+ key aspects of a Jenkinsfile
+ 
+ - Stages: Jenkinsfiles are organized into stages, each representing a logical part of the build and deployment process. Stages define the sequence of actions, such as building, testing, deploying, etc., that your pipeline should perform.
+- Steps: Each stage is composed of one or more steps. Steps are individual tasks or actions that contribute to the execution of a stage. For example, a step could involve checking out code, compiling, running tests, and deploying.
+- The agent directive specifies where the pipeline will run, such as on a specific node or a container. It defines the environment in which the pipeline steps will be executed.
+  
+
+**multibranch Pipeline**
+
+A multibranch pipeline is a feature in Jenkins that enables you to automatically create and manage pipelines for multiple branches in a version control repository, such as Git. It's particularly useful in projects where you have multiple feature branches
+
+ - New item - provide name - select multibranch pipeline
+ - Branch source : GIT - https://github.com/sagarkulkarni1989/sharedlibs.git
+ - Credentials - Its public repo so not required
+ - discover branches - if you want to use filter to get banch then use appropriate option. In this example you can ignore
+ - Build configuration : It get default Jenkinsfile . change the Jenkinsfile directory location as per your requirement
+
+**Multi-configuration project**
+
+A multiconfiguration project in Jenkins is a type of job that allows you to perform builds and tests across multiple configurations or combinations of parameters. It's particularly useful when you need to test your software on various platforms, environments, or settings. This type of project is also known as a "matrix project."
+
+Axes: In a multiconfiguration project, you define "axes." Axes are sets of parameters that represent different dimensions of your tests or builds. For example, if you want to test your software on different operating systems (Windows, Linux, macOS), you would define an axis called "Platform" with values "Windows," "Linux," and "macOS."
