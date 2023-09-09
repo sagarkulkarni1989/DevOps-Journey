@@ -37,15 +37,16 @@ Integrating Jenkins with LDAP (Lightweight Directory Access Protocol) is importa
 ```
 sudo apt update
 hostname -f
-vim cat /etc/hostname
-add : server1
+sudo hostnamectl set-hostname server-1 - Temparary
+For permanant change add here and reboot vim cat /etc/hostname
+add : server-1
 save and close 
 vim /etc/hosts  (update fqdn)
 <IP addres> <domain> <hostname>
-43.204.141.158 server1.hg.local server1
+43.204.141.158 server-1.hg.local server-1
 save and close
 sudo apt install apache2 php php-cgi libapache2-mod-php php-mbstring php-common php-pear -y 
-sudo apt-get install slapd ldap-utils -y 
+sudo apt-get install slapd ldap-utils -y   - set admin password - admin
 sudo slapcat
 sudo apt install ldap-account-manager -y 
 sudo a2enconf php*-cgi
@@ -63,7 +64,7 @@ sudo systemctl status apache2
 - Language settings - Default language - English and TimeZone : **Asia/kolkata** 
 - security settings : List of valid users : **cn=admin,dc=hg,dc=local**
 - profile password : Change default password and **save** changes
-- Login again http://<machine_IP>/lam  with new password
+- Login again http://<machine_IP>/lam - Edit server profiles  with new password
 - Acount types - Active account types : user and Group
 -  Users : LDAP suffix : ou=Department,dc=hg,dc=local   (No Other changes)
 -  Groups:LDAP suffix: ou=Group,dc=hg,dc=local    (No Other changes)
