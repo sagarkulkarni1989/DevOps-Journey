@@ -96,3 +96,68 @@ A multibranch pipeline is a feature in Jenkins that enables you to automatically
 A multiconfiguration project in Jenkins is a type of job that allows you to perform builds and tests across multiple configurations or combinations of parameters. It's particularly useful when you need to test your software on various platforms, environments, or settings. This type of project is also known as a "matrix project."
 
 Axes: In a multiconfiguration project, you define "axes." Axes are sets of parameters that represent different dimensions of your tests or builds. For example, if you want to test your software on different operating systems (Windows, Linux, macOS), you would define an axis called "Platform" with values "Windows," "Linux," and "macOS."
+
+**Project: Sample maven project deploy on tomcat using pipeline**
+
+**Pre-requisite**
+
+- Two Ubuntu VM required(Jenkins and Tomcat) - t2.micro, Ubuntu 20.04, default vpc
+- On One VM install Jenkins:
+- Second VM install Tomcat
+  
+```
+Login to VM
+sudo apt update
+sudo apt install default-jdk
+cd /opt/
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz
+tar -xvzf apache-tomcat-9.0.80.tar.gz
+mv apache-tomcat-9.0.80 tomcat
+chown -R ubuntu:ubuntu /opt/tomcat/
+sudo chmod -R u+x /opt/tomcat/bin/
+cd tomcat/bin/
+./startup.sh
+
+```
+- Install ssh Agent plugin in jenkins
+- Add credentials - manage jenkins- Credentials - add credentials - kind - SSH Username with Private key
+- ID : tomcat2 , description : tomcat  , username : Ubuntu  Enter directly - Add private key which is used to login VM  save it
+- Create a new project as a pipeline
+- 
+
+```
+pipeline {
+    agent any  
+    environment {
+        
+        server = "172.31.44.220"
+        user = "ubuntu"
+    }
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/kishancs2020/webAppExample.git'
+            }
+        }
+        
+        stage ('Build'){  
+            steps{          
+                sh "mvn package"      
+            }
+        }  
+        stage('Deploy'){
+            
+            steps{
+                sshagent(['tomcat2']) {
+                   
+                  sh "echo $server"
+                  sh "scp -o StrictHostKeyChecking=no target/*.war ${user}@${server}:/opt/tomcat/webapps"                   
+               
+                }         
+            }
+        }
+    }
+}
+
+```
+
