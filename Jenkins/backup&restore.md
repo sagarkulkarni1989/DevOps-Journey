@@ -16,7 +16,8 @@ Backing up and restoring Jenkins is essential for several important reasons:
   - Install Jenkins on first machine with all plugins and create some test jobs
   - On Second VM- install jenkins only and do not do any steps just wait on default password page  
   - install aws-cli on both machine
-  - create IAM Role with - IAM - Roles - provice any name - Policy - AmazonS3FullAccess
+  - create one S3 bucket
+  - create IAM Role with - IAM - Roles - provide any name - Policy - AmazonS3FullAccess
   - Add Newly created role to VM
 
   **Backup**
@@ -43,3 +44,8 @@ Backing up and restoring Jenkins is essential for several important reasons:
    you will see all jobs/configurations are copied from VM#1
 
    ```
+**Backup using Plugins - ThinBackup and Periodic Backup**
+
+**ThinBackup**
+
+
