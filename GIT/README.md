@@ -134,7 +134,36 @@ In Git, the git stash command is used to temporarily save changes that you have 
 - To remove a stash from the stash stack, you can use git stash drop.
 - If you want to apply and remove a stash in a single step, you can use git stash pop.
 
-git cherry-pick
+**git cherry-pick**
+
+Is used to apply a specific commit from one branch to another. It allows you to pick and apply individual commits, copying them to a different branch.
+- Find the commit hash or reference of the commit you want to apply to another branch. You can use commands like git log or gitk to browse the commit history and identify the relevant commit.
+- Switch to the branch where you want to apply the commit using the git checkout command.
+- Use the git cherry-pick command followed by the commit hash or reference of the commit you want to apply. git cherry-pick <commit_hash>
+
+**Practical : git cherry-pick ??**
+
+**What is the meaning of “Index” or “Staging Area” in GIT**
+
+The index serves as a holding area for changes that are ready to be committed. It acts as a snapshot of your working directory that is prepared for the next commit.
+
+**How do you find a list of files that has been changed in a particular commit?**
+
+git diff-tree –r {commit hash}
+-r flag allows the command to list individual files
+commit hash lists all the files that were changed or added in the commit.
+
+**What is the functionality of git clean command?**
+The git clean command removes the untracked files from the working directory.
+
+**How to change any older commit messages?**
+You can change the most recent commit message with the git commit —amend command.
+
+**git remote**
+- git remote is a command that allows you to manage connections to remote repositories. It provides a way to interact with and manipulate remote repositories that are linked to your local repository.
+- git remote add origin https://github.com/your_username/your_repository.git
+- git remote –v : This command lists the remote repositories associated with your local repository
+- git remote rename <old_name> <new_name>  This command allows you to rename a remote repository reference.
 
 
 
