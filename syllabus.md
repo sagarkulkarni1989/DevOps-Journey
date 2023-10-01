@@ -186,9 +186,60 @@
 - Use Case Of Patterns
 - Ansible vault
 
-**Kubernetes**
-
-
 ## Kubernetes 
+
+**Introduction to Kubernetes**
+
+- Understanding Containerization and Orchestration
+- Kubernetes Overview and Architecture
+- Installation Methods (Minikube, kubeadm, cloud-managed clusters)
+- Basic Cluster Management (kubectl, kubeconfig)
+
+**Kubernetes Pods and Containers**
+
+- Pod Networking and Storage
+- Container Lifecycles
+- Creating and Managing Pods
+- Deployments vs. ReplicaSets
+- Scaling Applications
+- Rolling Updates and Rollbacks
+- Strategies for High Availability
+
+**Services and Networking**
+
+- Service Types (ClusterIP, NodePort, LoadBalancer)
+- Ingress Controllers
+- DNS in Kubernetes
+- Network Policies for Security
+
+**Configuration and Secrets Management**
+
+- ConfigMaps and Secrets
+- Environment Variables and Configurations
+- Managing Sensitive Data
+- Helm: Kubernetes Package Manager
+  
+**Persistent Storage**
+
+- Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)
+- Storage Classes
+- StatefulSets for Stateful Applications
+- Data Backup and Recovery
+
+**Kubernetes Security**
+
+- Securing the Kubernetes API
+- RBAC (Role-Based Access Control)
+- Pod Security Policies
+- Image Scanning and Security Best Practices
+
+**Advanced Topics**
+
+- Custom Resource Definitions (CRDs)
+- Operators for Automating Operations
+- Multi-Cluster Management
+- Cost Optimization and Resource Efficiency
+
+
 
 ## Monitoring - Prometheus and Grafana
