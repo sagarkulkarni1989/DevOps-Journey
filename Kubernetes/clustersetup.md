@@ -1,12 +1,13 @@
 ## Cluster Setup 
 
 **Pre-requesite**
-one ubuntu - t2.medium , 15GB RAM Default VPC 
+- ubuntu - t2.medium , 15GB RAM Default VPC, security group - all traffic 
 
+## Minikube
 
-**Minikube** 
+Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node. Minikube is available for Linux, macOS, and Windows systems
 
-Docker Installation 
+**Docker Installation**
 
 ```
 sudo apt update -y
@@ -20,7 +21,7 @@ sudo apt install docker-ce
 sudo systemctl status docker
 
 ```
-Minikube 
+**Minikube instalation steps** 
 
 ```
 sudo apt install -y curl wget apt-transport-https
@@ -41,6 +42,15 @@ kubectl get nodes
 ```
 
 **KOPS**
+
+kOps, also known as Kubernetes operations, is an open-source project which helps you create, destroy, upgrade, and maintain a highly available, production-grade Kubernetes cluster. Depending on the requirement, kOps can also provision cloud infrastructure. kOps is mostly used in deploying AWS and GCE Kubernetes clusters. But officially, the tool only supports AWS.
+
+Benefits of kOps
+
+- Supports rolling cluster updates
+- Manages cluster add-ons
+- Supports state-sync model for dry-runs and automatic idempotency
+  
 
 ```
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -76,3 +86,29 @@ kubectl get nodes --show-labels
 kops validate cluster --state=s3://S3-bucket-name
 kops delete cluster --state=s3://kops-statets --name=test.k8s.local --yes
 ```
+
+## Kind 
+
+Kind is an open-source tool for running a Kubernetes cluster locally, using Docker containers as cluster nodes.While its primary purpose is enabling users to test Kubernetes on a single machine, developers also use Kind for local development and Continuous Integration (CI).
+
+```
+apt-get update
+apt install docker.io -y
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+chmod +x ./kind
+mv ./kind /usr/local/bin/kind
+kind version
+kind create cluster
+docker ps
+kind get clusters
+kubectl get nodes
+kubectl cluster-info --context kind-kind
+Delete cluster : kind delete cluster
+```
+
+
+
