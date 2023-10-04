@@ -110,5 +110,66 @@ kubectl cluster-info --context kind-kind
 Delete cluster : kind delete cluster
 ```
 
+## EKS cluster setup using eksctl
 
+Amazon EKS is a fully managed container orchestration service. EKS allows you to quickly deploy a production ready Kubernetes cluster in AWS, deploy and manage containerized applications more easily with a fully managed Kubernetes service.
+EKS takes care of master node/control plane. We need to create worker nodes.
 
+EKS cluster can be created in following ways:
+
+1. AWS console
+2. AWS CLI
+3. eksctl command
+4. using Terraform
+
+We will create EKS cluster using eksctl command line tool.
+
+**Pre-requisites:**
+
+- Install AWS CLI : Command line tools for working with AWS services, including Amazon EKS.
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+sudo unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+```
+- Install eksctl – A command line tool for working with EKS clusters that automates many individual tasks.
+
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin/
+eksctl version
+```
+
+- Install kubectl  – A command line tool for working with Kubernetes clusters.
+
+```
+sudo curl --silent --location -o /usr/local/bin/kubectl   https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl
+sudo chmod +x /usr/local/bin/kubectl
+kubectl version --short --client
+```
+
+- Create IAM Role with Administrator Access : ou need to create an IAM role with AdministratorAccess policy.
+Go to AWS console, IAM, click on Roles. create a role
+
+- Select AWS services, Click EC2, Click on Next permissions.
+- Now search for AdministratorAccess policy and click
+- Now give a role name and create it.
+- Assign the role to EC2 instance
+- Go to AWS console, click on EC2, select EC2 instance, Choose Security. Click on Modify IAM Role
+- create new user : adduser jenkins
+- Switch to Jenkins user : sudo su - jenkins
+- Create EKS Cluster with two worker nodes using eksctl
+
+```
+eksctl create cluster --name demo-eks --region ap-south-1 --nodegroup-name my-nodes --node-type t3.small --managed --nodes 2     # change region based on your requirement
+```
+- the above command should create a EKS cluster in AWS, it might take 15 to 20 mins. The eksctl tool uses CloudFormation under the hood, creating one stack for the EKS master control plane and another stack for the worker nodes.
+- eksctl get cluster --name demo-eks --region ap-south-1
+- This should confirm that EKS cluster is up and running.
+- Connect to EKS cluster using kubectl commands kubectl get nodes , kubectl get ns
+- Deploy Nginx on a Kubernetes Cluster  : kubectl create deployment nginx --image=nginx
+- View Deployments  : kubectl get deployments
+- Delete EKS Cluster using eksctl :  eksctl delete cluster --name demo-eks --region us-east-1    #delete cluster after your practical
