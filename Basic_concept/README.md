@@ -1,13 +1,3 @@
-* Let’s Understand about Software Development Model
-* Overview of Waterfall Development Model
-* Challenges of Waterfall Development Model
-* Overview of Agile Development Model
-* What is DevOps?
-* Waterfall -> Agile -> CI/CD -> DevOps -> DevSecOps
-* What is DevSecOps?
-* What is SRE?
-* Microservices Fundamentals
-* API Fundamental
 
 ## Software development cycle 
 
@@ -32,7 +22,7 @@
 ![DevOps-Tools-DevOps-Tutorial-Edureka-1](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/13367284-a7dc-406c-b799-d87e411a358b)
 
 
-**Different between Devops, DevSecOps and Site Reliability Engineering (SRE)**
+## Different between Devops, DevSecOps and Site Reliability Engineering (SRE)
 
 **DevOps**: DevOps is a methodology that aims to break down the traditional silos between software development and operations teams. The goal is to enable a more collaborative and agile approach to software development, where developers and operations work together to build, test, deploy, and manage software applications. DevOps focuses on automating processes, improving communication and collaboration, and promoting continuous improvement.
 
@@ -42,7 +32,7 @@
 
 In summary, while DevOps focuses on collaboration and agility, DevSecOps adds a security focus to the process, and SRE focuses on ensuring the reliability and availability of software systems.
 
-**Different between DevOps and Agile**
+## Different between DevOps and Agile
 DevOps and Agile are related but distinct methodologies that are used to improve software development and delivery. Here are some of the key differences between the two:
 
 **Focus:** Agile is primarily focused on software development processes, while DevOps is focused on the entire software development lifecycle, including deployment, delivery, and operations.
@@ -57,7 +47,7 @@ DevOps and Agile are related but distinct methodologies that are used to improve
 
 In summary, while both Agile and DevOps aim to improve software development and delivery, they have different focuses, cultures, and toolsets. Agile is primarily focused on software development processes, while DevOps focuses on the entire software development lifecycle and emphasizes collaboration between developers and operations teams.
 
-**Different between Continuous Integration (CI), Continuous Delivery (CD), and Continuous Deployment (CD)**
+## Different between Continuous Integration (CI), Continuous Delivery (CD), and Continuous Deployment (CD)
 
 Continuous Integration (CI), Continuous Delivery (CD), and Continuous Deployment (CD) are all part of the DevOps approach, but they have different meanings and objectives. Here are the differences between them:
 
@@ -69,7 +59,7 @@ Continuous Integration (CI), Continuous Delivery (CD), and Continuous Deployment
 
 In summary, CI is focused on code integration and testing, CD is focused on automating the deployment and validation of code changes, and CD takes automation one step further by automatically deploying code changes to production.
 
-**Agile Terminology**
+## Agile Terminology
 
 Agile is a software development approach that emphasizes flexibility, collaboration, and rapid iteration. Here are some common agile terms and concepts:
 
@@ -93,7 +83,7 @@ Agile is a software development approach that emphasizes flexibility, collaborat
 
 **Test-driven development (TDD):** A development approach that involves writing tests before writing code, with the goal of ensuring that the code is testable and that all requirements are met.
 
-**Different devSecOps tool**
+## Different devSecOps tool
 
 DevSecOps is a practice that involves integrating security into the DevOps workflow, with the goal of improving the security and reliability of software products. There are various tools available for DevSecOps that can help automate security testing and ensure that security is built into every stage of the software development life cycle. Here are some examples of DevSecOps tools:
 
@@ -111,7 +101,7 @@ DevSecOps is a practice that involves integrating security into the DevOps workf
 
 These are just a few examples of DevSecOps tools available in the market, and the choice of tool will depend on the specific needs and requirements of an organization.
 
-**What according to you is a Release? And are you involved in Release process?**
+## What according to you is a Release? And are you involved in Release process?
 
 A release process refers to a set of steps and activities that need to be performed to deploy a new software release to production. The process involves building, testing, and deploying the application to a production environment. The goal of a release process is to ensure that the new release is stable, reliable, and performs as expected in the production environment.
 
@@ -133,7 +123,7 @@ The steps involved in a release process can vary depending on the organization's
 
 The release process is critical in ensuring that the software application is deployed in a controlled and predictable manner, minimizing the risk of issues and downtime in production.
 
-**DevOps Pipeline**
+## DevOps Pipeline
 
 A DevOps pipeline is a set of automated processes that are used to build, test, and deploy software applications in a continuous and efficient manner. The pipeline includes various stages that are designed to ensure that the application is tested thoroughly and is ready for deployment.
 
