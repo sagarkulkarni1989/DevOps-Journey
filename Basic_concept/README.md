@@ -9,6 +9,29 @@
 * Microservices Fundamentals
 * API Fundamental
 
+## Software development cycle 
+
+![1_kOKhUX6Vr2TFqi8vDK1qnQ](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/3d4a05d2-4157-45fc-b791-10132352a7c7)
+
+**Waterfall Model:**
+
+  - The Waterfall model is a linear and sequential approach to software development.
+  - It divides the development process into distinct phases such as requirements, design, implementation, testing, deployment, and maintenance.
+
+**Agile Model:**
+
+   - Agile is an iterative and incremental approach to software development.
+   - It emphasizes collaboration, customer feedback, and adaptability.
+   - Agile methods, such as Scrum and Kanban, involve short development cycles (sprints) and prioritize delivering working software quickly.
+![AdobeStock_255546088-1280x595](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/da59124b-fcae-43d1-ae29-f5e859cfb25b)
+
+
+**DevOps**
+  - DevOps is a culture and set of practices that aims to unify development (Dev) and IT operations (Ops).
+  - It emphasizes automation, continuous integration, continuous delivery (CI/CD), and collaboration to improve software deployment speed and reliability.
+![DevOps-Tools-DevOps-Tutorial-Edureka-1](https://github.com/sagarkulkarni1989/DevOps-Journey/assets/46215433/13367284-a7dc-406c-b799-d87e411a358b)
+
+
 **Different between Devops, DevSecOps and Site Reliability Engineering (SRE)**
 
 **DevOps**: DevOps is a methodology that aims to break down the traditional silos between software development and operations teams. The goal is to enable a more collaborative and agile approach to software development, where developers and operations work together to build, test, deploy, and manage software applications. DevOps focuses on automating processes, improving communication and collaboration, and promoting continuous improvement.
