@@ -129,6 +129,22 @@ In Git, both git pull and git fetch are used to update your local repository wit
 
 **Practical -- Git pull and fetch ???**
 
+```
+first clone repository
+git clone https://github.com/sagarkulkarni1989/samplerepoo.git
+cd samplerepoo/
+git status
+add new file in github - first.txt and add some content
+git fetch
+git merge
+```
+It indicates that your local origin/main branch has been updated to include new commits. The commit hash 680c43a was the previous state of origin/main, and it has been updated to d719330. 
+
+```
+update first.txt with new data directly on github repo
+git pull
+```
+
 **git revert:** 
 
 - The git revert command creates a new commit that undoes the changes made in a previous commit.
