@@ -152,12 +152,48 @@ git pull
 - This command is suitable when you want to revert changes while preserving the commit history and allowing for easy future reference.
 - git revert <commit_id>
 
+```
+git clone https://github.com/sagarkulkarni1989/samplerepoo.git
+cd samplerepoo/
+git status
+add new file
+git add .
+git commit -m "added new file"
+git push origin main
+git log --oneline
+git reset --hard <commit_id>  use previous id
+git log
+git push origin main   # it will fail because local branch is no sync with public
+git pull origin main
+git log
+git revert <commit)ID>  # exact commit ID
+git log
+git push origin main
+```
+
+- Reset removes commit from history and it works only for local commits
+- Revert will not odify commit hisotry, it work both local and remote commits
 **git reset**
 
-- The git reset command allows you to move the current branch to a specific commit, effectively removing commits from the branch's history.
-- It is a more powerful command that can be used to remove commits permanently.
-- This command is suitable when you want to remove one or more commits entirely and do not need to preserve them in the history.
-- git reset <commit_id>
+- It's used to move the HEAD and branch pointer to a different commit in the project's history. There are several variations of the "git reset" command, 
+- git reset --soft <commit>: This resets the HEAD to the specified commit while keeping the changes from the commits after that commit staged. You can then make additional changes and create a new commit.**(changes are in stage area)**
+- git reset --mixed <commit>: This is the default option. It resets the HEAD to the specified commit and unstages the changes made after that commit. You can then restage the changes you want and create a new commit.**(untracked files)**
+- git reset --hard <commit>: This resets the HEAD to the specified commit and **discards all changes made after that commit.** It's a more drastic option, and you should use it with caution, as it permanently deletes uncommitted work.
+
+```
+git clone https://github.com/sagarkulkarni1989/samplerepoo.git
+cd samplerepoo/
+git status
+add new file
+git add .
+git commit -m "added new file"
+git log --oneline
+git reset <commit ID>  # always take previous commit for which you want to delete. default it will take --mixed
+git reset --soft <commit_ID>
+git reset --hard <commit_ID>
+ 
+```
+
 
 **Practical - git revert and reset ??**
 
