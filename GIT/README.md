@@ -226,6 +226,19 @@ In Git, the git stash command is used to temporarily save changes that you have 
 - To apply the changes from a stash and bring them back to your working directory, you can use git stash apply.
 - To remove a stash from the stash stack, you can use git stash drop.
 - If you want to apply and remove a stash in a single step, you can use git stash pop.
+  
+```
+git clone <Repo_URL>
+## add some new lines in file
+git stash -m "added new line"
+git stash list
+git stash apply   # it will apply latest stash
+git stash apply stash@{2}
+git stash drop # remove stash
+git stash drop # apply and drop
+
+```
+
 
 **git cherry-pick**
 
