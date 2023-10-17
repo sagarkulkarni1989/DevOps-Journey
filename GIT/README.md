@@ -108,7 +108,31 @@ Git merge and rebase are two different strategies used to incorporate changes fr
 - When you rebase a branch, Git applies the commits from the source branch onto the tip of the target branch, resulting in a linear commit history.
 - Unlike merging, which creates merge commits, rebasing replays commits on top of the target branch, maintaining a cleaner and more linear history.
 
-**Practical : Git merge and Rebase ????**
+**Practical : Git merge and Rebase
+
+```
+git init
+touch m1.txt
+git add .
+git commit -m "added m1.txt"
+git branch feature  # create new feature branch
+git branch  # To see available branch
+git checkout feature  # change branch to feature 
+touch f1.txt
+git add . 
+git commit --m "added f1.txt"
+git log 
+git checkout master
+touch m2.txt
+git add .
+git commit -m "added m2.txt"
+git checkout feture 
+git merge master
+
+For rebase use all above command except  : git rebase master
+
+```
+
 
 **Git pull and fetch**
 
@@ -127,7 +151,7 @@ In Git, both git pull and git fetch are used to update your local repository wit
 - It fetches the latest changes from the remote repository and merges them into your current branch in one step.
 - Pulling is a convenient way to quickly update your branch with the latest changes and incorporate them into your working directory.
 
-**Practical -- Git pull and fetch ???**
+**Practical -- Git pull and fetch**
 
 ```
 first clone repository
@@ -173,6 +197,7 @@ git push origin main
 
 - Reset removes commit from history and it works only for local commits
 - Revert will not odify commit hisotry, it work both local and remote commits
+  
 **git reset**
 
 - It's used to move the HEAD and branch pointer to a different commit in the project's history. There are several variations of the "git reset" command, 
@@ -194,8 +219,6 @@ git reset --hard <commit_ID>
  
 ```
 
-
-**Practical - git revert and reset ??**
 
 **git stash**
 
