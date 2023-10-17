@@ -234,7 +234,23 @@ Is used to apply a specific commit from one branch to another. It allows you to 
 - Switch to the branch where you want to apply the commit using the git checkout command.
 - Use the git cherry-pick command followed by the commit hash or reference of the commit you want to apply. git cherry-pick <commit_hash>
 
-**Practical : git cherry-pick ??**
+**Practical : git cherry-pick**
+```
+git init
+touch first.txt
+git add && git commit -m "added"
+git log --oneline
+git branch feature
+git checkout feature
+touch second.txt
+git add && git commit -m "added"
+touch three.txt
+git add && git commit -m "added"
+git log --oneline
+git checkout master
+git cherry-pick <commit_ID>  # take it from master branch commit ID
+
+```
 
 **What is the meaning of “Index” or “Staging Area” in GIT**
 
