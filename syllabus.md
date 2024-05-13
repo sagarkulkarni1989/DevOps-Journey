@@ -48,14 +48,22 @@
 ## Cloud - AWS 
 
 - Creating AWS account
+- Why Cloud Migration
+- What is Cloud Migration
+- Cloud Computing Service Models
+- Cloud Computing Deployment Models
 - Understanding AWS Regions and availability zones
 - EC2 ( Elastic Cloud Comput)
-- About EC2 and types , Pricing
-- Launch Linux Instances, connecting to
-  
-  ***To be continue ....***
+- EBS, EFS, S3
+- VPC
+- Amazon RDS and its benefits
+- Load Balancing, Auto-Scaling, and Route 53
+- AWS Lambda
+- IAM
+- Cloud Watch
+## Cost optimization project 1 : start/stop VM
 
-## Introduction to CI/CD 
+## Introduction to CI/CD - Jenkins
 
 - Understanding continuous integration
 - Introduction about Jenkins
@@ -243,3 +251,5 @@
 
 
 ## Monitoring - Prometheus and Grafana
+
+## Real time end to end DevOps project
