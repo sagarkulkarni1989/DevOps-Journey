@@ -248,7 +248,7 @@
 - Multi-Cluster Management
 - Cost Optimization and Resource Efficiency
 
-Iac : Terraform
+## Iac : Terraform
 
 - Concept of IaC
 - Introduction to Automation and IAC
