@@ -248,6 +248,27 @@
 - Multi-Cluster Management
 - Cost Optimization and Resource Efficiency
 
+Iac : Terraform
+
+- Concept of IaC
+- Introduction to Automation and IAC
+- Deployment vs Configuration Management vs Provisioning
+- Ansible vs Terraform
+- Advantages of Terraform
+- Installation of Terraform in Windows and Linux
+- Handle Terraform and provider installation and versioning
+- Terraform Registry Providers and Module
+- Terraform Lifecycle
+- Terraform State MV
+- Launch apache on AWS using Terraform workflow and variable
+- Create s3 bucket in AWS and stores state in s3 bucket
+- Variables
+- Understanding the Built-in Functions
+- Local and Remote Workspace
+- Integrating Workspace with Git
+
+
+
 
 
 ## Monitoring - Prometheus and Grafana
